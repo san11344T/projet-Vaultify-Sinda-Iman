@@ -1,0 +1,48 @@
+<section class="row justify-content-center">
+  <article class="col-md-6">
+    <section class="card shadow-sm">
+      
+      <header class="card-header bg-success text-white">
+        <h3 class="mb-0">Ouvrir un compte</h3>
+      </header>
+      
+      <section class="card-body">
+        <form (ngSubmit)="register()">
+          <section class="row mb-3">
+            <span class="col">
+              <input type="text" [(ngModel)]="form.prenom" name="prenom" class="form-control" placeholder="Prénom" required>
+            </span>
+            <span class="col">
+              <input type="text" [(ngModel)]="form.nom" name="nom" class="form-control" placeholder="Nom" required>
+            </span>
+          </section>
+          
+          <section class="mb-3">
+            <input type="email" [(ngModel)]="form.email" name="email" class="form-control" placeholder="Email" required>
+          </section>
+          
+          <section class="mb-3">
+            <input type="password" [(ngModel)]="form.mdp" name="mdp" class="form-control" placeholder="Mot de passe" required>
+          </section>
+
+          <section class="mb-3">
+            <label class="form-label">Type de compte</label>
+            <select [(ngModel)]="form.category" name="category" class="form-select">
+              <option value="regular">Standard</option>
+              <option value="student">Étudiant (Offre Bienvenue 100€)</option>
+            </select>
+          </section>
+
+          <section class="d-grid">
+            <button type="submit" class="btn btn-success">S'inscrire</button>
+          </section>
+        </form>
+      </section>
+
+      <footer class="card-footer text-center">
+        <a routerLink="/login">Déjà client ? Se connecter</a>
+      </footer>
+
+    </section>
+  </article>
+</section>

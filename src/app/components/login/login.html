@@ -1,0 +1,31 @@
+<section class="row justify-content-center">
+  <article class="col-md-6">
+    <section class="card shadow-sm">
+      
+      <header class="card-header bg-primary text-white">
+        <h3 class="mb-0">Connexion</h3>
+      </header>
+      
+      <section class="card-body">
+        <form (ngSubmit)="onLogin()">
+          <section class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="sinda@vaultify.com" required>
+          </section>
+          <section class="mb-3">
+            <label class="form-label">Mot de passe</label>
+            <input type="password" [(ngModel)]="password" name="password" class="form-control" required>
+          </section>
+          <section class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+          </section>
+        </form>
+      </section>
+
+      <footer class="card-footer text-center">
+        <a routerLink="/register" class="text-decoration-none">Pas de compte ? Créer un compte</a>
+      </footer>
+
+    </section>
+  </article>
+</section>

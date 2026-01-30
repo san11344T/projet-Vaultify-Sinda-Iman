@@ -1,0 +1,85 @@
+{
+  "auth": [
+    {
+      "id": "1",
+      "email": "sinda@vaultify.com",
+      "password": "123",
+      "role": "client",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "email": "iman@vaultify.com",
+      "password": "456",
+      "role": "client",
+      "userId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Sinda",
+      "lastName": "Ben",
+      "email": "sinda@vaultify.com",
+      "category": "student",
+      "offers": [
+        "welcome_bonus"
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "Iman",
+      "lastName": "Solaih",
+      "email": "iman@vaultify.com",
+      "category": "regular",
+      "offers": []
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1",
+      "userId": 1,
+      "balance": 1500,
+      "type": "CHECKING",
+      "rib": "FR76 1234 5678"
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "balance": 50,
+      "type": "CHECKING",
+      "rib": "FR76 9876 5432"
+    }
+  ],
+  "transfers": [],
+  "requests": [
+    {
+      "id": "8c9f",
+      "userId": "1",
+      "type": "CLOSURE",
+      "status": "PENDING",
+      "date": "2026-01-29T11:44:16.304Z"
+    },
+    {
+      "id": "996c",
+      "userId": "1",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-01-29T16:54:53.274Z"
+    },
+    {
+      "id": "6fcf",
+      "userId": "1",
+      "type": "LIVRET_A",
+      "status": "PENDING",
+      "date": "2026-01-29T16:54:57.574Z"
+    },
+    {
+      "id": "ac6d",
+      "userId": "1",
+      "type": "LIVRET_A",
+      "status": "PENDING",
+      "date": "2026-01-29T16:55:42.407Z"
+    }
+  ]
+}

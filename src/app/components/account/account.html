@@ -1,0 +1,67 @@
+<section *ngIf="user" class="animate-fade-in">
+  
+  <header class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Bonjour, {{ user.firstName }}</h1>
+    <button (click)="logout()" class="btn btn-outline-danger btn-sm">Déconnexion</button>
+  </header>
+
+  <article class="card bg-dark text-white mb-4">
+    <section class="card-body text-center p-5">
+      <h5 class="card-title text-muted">Solde Disponible</h5>
+      <h1 class="display-3 fw-bold">{{ account?.balance || 0 }} €</h1>
+      <p class="mb-0 text-info" *ngIf="user.offers.includes('welcome_bonus')">
+        Offre Étudiant Active
+      </p>
+      <small class="text-muted" *ngIf="account">RIB: {{ account.rib }}</small>
+    </section>
+  </article>
+
+<section class="row mb-4">
+    <article class="col-md-3 mb-2">
+      <button routerLink="/transfer" class="btn btn-primary w-100 py-3">
+         Faire un virement
+      </button>
+    </article>
+    <article class="col-md-3 mb-2">
+      <button (click)="createRequest('LIVRET_A')" class="btn btn-outline-secondary w-100 py-3">
+         Ouvrir Livret A
+      </button>
+    </article>
+    <article class="col-md-3 mb-2">
+      <button (click)="createRequest('INSURANCE')" class="btn btn-outline-secondary w-100 py-3">
+         Assurance
+      </button>
+    </article>
+    <article class="col-md-3 mb-2">
+      <button (click)="createRequest('CLOSURE')" class="btn btn-outline-danger w-100 py-3">
+         Clôturer Compte
+      </button>
+    </article>
+  </section>
+
+  <article class="card">
+    <header class="card-header">
+      Dernières Transactions
+    </header>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let t of history" class="list-group-item d-flex justify-content-between align-items-center">
+        <span>
+          <strong>{{ t.label}}</strong><br>
+          <small class="text-muted">{{ t.date | date:'short' }}</small>
+        </span>
+        <span [class]="t.fromUserId === user.id ? 'text-danger fw-bold' : 'text-success fw-bold'">
+          {{ t.fromUserId === user.id ? '-' : '+' }} {{ t.amount }} €
+        </span>
+      </li>
+      <li *ngIf="history.length === 0" class="list-group-item text-center text-muted">
+        Aucune transaction récente.
+      </li>
+    </ul>
+  </article>
+
+</section>
+
+<section *ngIf="!user" class="text-center mt-5">
+  <span class="spinner-border text-primary" role="status"></span>
+  <p>Chargement de vos comptes...</p>
+</section>

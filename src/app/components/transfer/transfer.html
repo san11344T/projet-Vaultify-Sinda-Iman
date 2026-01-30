@@ -1,0 +1,30 @@
+<section class="row justify-content-center">
+  <article class="col-md-6">
+    <nav class="mb-3">
+      <button routerLink="/account" class="btn btn-link">&larr; Retour au compte</button>
+    </nav>
+    
+    <section class="card">
+      <section class="card-body">
+        <h3 class="card-title mb-4">Nouveau Virement</h3>
+        
+        <form (ngSubmit)="valider()">
+          <section class="mb-3">
+            <label class="form-label">Email du destinataire</label>
+            <input type="email" [(ngModel)]="emailDest" name="emailDest" class="form-control" placeholder="ex: imen@vaultify.com" required>
+            <small class="form-text">L'argent sera envoyé instantanément.</small>
+          </section>
+
+          <section class="mb-3">
+            <label class="form-label">Montant (€)</label>
+            <input type="number" [(ngModel)]="montant" name="montant" class="form-control form-control-lg" placeholder="0.00" required>
+          </section>
+
+          <section class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Confirmer le virement</button>
+          </section>
+        </form>
+      </section>
+    </section>
+  </article>
+</section>
