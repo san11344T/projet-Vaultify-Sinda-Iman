@@ -1,0 +1,200 @@
+<!-- settings.html - PALETTE ROYAL MODERN -->
+<app-navbar></app-navbar>
+<div class="min-h-screen bg-[#F6F5F1] pt-20">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    
+    <!-- Welcome Header -->
+    <div class="mb-8 animate-fade-in">
+      <h1 class="text-4xl font-bold mb-3 text-[#0A2E6D]">
+        Personalize your experience
+      </h1>
+      <p class="text-[#1F2937]/80 text-lg font-medium">
+        Customize themes, download documents, and manage services
+      </p>
+    </div>
+
+    <div class="space-y-6">
+
+      <!-- Design Themes Section -->
+      <div class="bg-white/95 rounded-2xl shadow-lg hover:shadow-2xl border border-[#0A2E6D]/20 animate-scale-in transition-all duration-500">
+        
+        <!-- Card Header -->
+        <div class="border-b border-[#0A2E6D]/10 p-8 pb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#0A2E6D] to-[#D5A928] rounded-xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-[#0A2E6D]">Design Themes</h2>
+              <p class="text-[#1F2937]/60 font-medium text-sm">Switch the platform design</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Content - Theme Options -->
+        <div class="p-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Light Luxury Theme -->
+            <button (click)="handleThemeChange('Light Luxury')"
+                    class="group h-28 flex flex-col items-center justify-center border-2 border-[#0A2E6D]/20 rounded-xl hover:border-[#D5A928] hover:bg-[#D5A928]/5 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#F6F5F1] to-white shadow-md mb-3 group-hover:scale-110 transition-transform"></div>
+              <span class="font-bold text-[#0A2E6D] text-lg">Light Luxury</span>
+              <span class="text-xs text-[#1F2937]/60 mt-1">Ivory elegance</span>
+            </button>
+
+            <!-- Dark Sapphire Theme -->
+            <button (click)="handleThemeChange('Dark Sapphire')"
+                    class="group h-28 flex flex-col items-center justify-center border-2 border-[#0A2E6D]/20 rounded-xl hover:border-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#0A2E6D] to-[#3ACFD9] shadow-md mb-3 group-hover:scale-110 transition-transform"></div>
+              <span class="font-bold text-[#0A2E6D] text-lg">Dark Sapphire</span>
+              <span class="text-xs text-[#1F2937]/60 mt-1">Royal blue</span>
+            </button>
+
+            <!-- Ivory Minimal Theme -->
+            <button (click)="handleThemeChange('Ivory Minimal')"
+                    class="group h-28 flex flex-col items-center justify-center border-2 border-[#0A2E6D]/20 rounded-xl hover:border-[#1F2937] hover:bg-[#1F2937]/5 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white to-[#1F2937]/20 shadow-md mb-3 group-hover:scale-110 transition-transform"></div>
+              <span class="font-bold text-[#0A2E6D] text-lg">Ivory Minimal</span>
+              <span class="text-xs text-[#1F2937]/60 mt-1">Clean simplicity</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Documents Section -->
+      <div class="bg-white/95 rounded-2xl shadow-lg hover:shadow-2xl border border-[#0A2E6D]/20 animate-scale-in transition-all duration-500" style="animation-delay: 0.1s;">
+        
+        <!-- Card Header -->
+        <div class="border-b border-[#0A2E6D]/10 p-8 pb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#3ACFD9] to-[#0A2E6D] rounded-xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-[#0A2E6D]">Request Documents</h2>
+              <p class="text-[#1F2937]/60 font-medium text-sm">Download your banking documents</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Content - Document Buttons -->
+        <div class="p-8">
+          <div class="space-y-4">
+            
+            <!-- Download RIB -->
+            <button (click)="handleDocumentDownload('RIB')"
+                    class="w-full flex items-center gap-4 p-5 border-2 border-[#0A2E6D]/20 rounded-xl hover:border-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-300 hover:shadow-lg group">
+              <div class="w-12 h-12 bg-[#0A2E6D]/10 rounded-lg flex items-center justify-center group-hover:bg-[#0A2E6D] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-[#0A2E6D] group-hover:text-white transition-colors">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div class="text-left flex-1">
+                <p class="font-bold text-lg text-[#0A2E6D]">Download RIB</p>
+                <p class="text-sm text-[#1F2937]/60">Bank account details (IBAN)</p>
+              </div>
+              <svg class="w-6 h-6 text-[#0A2E6D] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+
+            <!-- Download Bank Statement -->
+            <button (click)="handleDocumentDownload('Bank Statement')"
+                    class="w-full flex items-center gap-4 p-5 border-2 border-[#3ACFD9]/20 rounded-xl hover:border-[#3ACFD9] hover:bg-[#3ACFD9]/5 transition-all duration-300 hover:shadow-lg group">
+              <div class="w-12 h-12 bg-[#3ACFD9]/10 rounded-lg flex items-center justify-center group-hover:bg-[#3ACFD9] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-[#3ACFD9] group-hover:text-white transition-colors">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div class="text-left flex-1">
+                <p class="font-bold text-lg text-[#0A2E6D]">Download Bank Statement</p>
+                <p class="text-sm text-[#1F2937]/60">Monthly transaction summary</p>
+              </div>
+              <svg class="w-6 h-6 text-[#3ACFD9] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Insurance Section -->
+      <div class="bg-white/95 rounded-2xl shadow-lg hover:shadow-2xl border border-[#0A2E6D]/20 animate-scale-in transition-all duration-500" style="animation-delay: 0.2s;">
+        
+        <!-- Card Header -->
+        <div class="border-b border-[#0A2E6D]/10 p-8 pb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#D5A928] to-[#0A2E6D] rounded-xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-[#0A2E6D]">Request Insurance</h2>
+              <p class="text-[#1F2937]/60 font-medium text-sm">Protect what matters most</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Content - Insurance Options -->
+        <div class="p-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Home Insurance -->
+            <div (click)="handleInsuranceRequest('Home')"
+                 class="group cursor-pointer bg-gradient-to-br from-white to-[#0A2E6D]/5 border-2 border-[#0A2E6D]/20 hover:border-[#0A2E6D] rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2">
+              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">🏠</div>
+              <h4 class="font-black text-xl text-[#0A2E6D] mb-2">Home</h4>
+              <p class="text-sm text-[#1F2937]/70 font-medium">Protect your residence</p>
+              <div class="mt-4 pt-4 border-t border-[#0A2E6D]/10">
+                <span class="text-xs font-bold text-[#D5A928]">Request Quote →</span>
+              </div>
+            </div>
+
+            <!-- Car Insurance -->
+            <div (click)="handleInsuranceRequest('Car')"
+                 class="group cursor-pointer bg-gradient-to-br from-white to-[#3ACFD9]/5 border-2 border-[#3ACFD9]/20 hover:border-[#3ACFD9] rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2">
+              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">🚗</div>
+              <h4 class="font-black text-xl text-[#0A2E6D] mb-2">Car</h4>
+              <p class="text-sm text-[#1F2937]/70 font-medium">Vehicle coverage</p>
+              <div class="mt-4 pt-4 border-t border-[#3ACFD9]/10">
+                <span class="text-xs font-bold text-[#3ACFD9]">Request Quote →</span>
+              </div>
+            </div>
+
+            <!-- Valuables Insurance -->
+            <div (click)="handleInsuranceRequest('Valuable Purchase')"
+                 class="group cursor-pointer bg-gradient-to-br from-white to-[#D5A928]/5 border-2 border-[#D5A928]/20 hover:border-[#D5A928] rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2">
+              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">💎</div>
+              <h4 class="font-black text-xl text-[#0A2E6D] mb-2">Valuables</h4>
+              <p class="text-sm text-[#1F2937]/70 font-medium">High-value items</p>
+              <div class="mt-4 pt-4 border-t border-[#D5A928]/10">
+                <span class="text-xs font-bold text-[#D5A928]">Request Quote →</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Back to Dashboard -->
+    <div class="text-center mt-8">
+      <a routerLink="/account" class="inline-flex items-center gap-2 px-6 py-3 bg-white/80 rounded-xl border-2 border-[#0A2E6D]/20 hover:border-[#0A2E6D] text-[#1F2937] font-semibold transition-all duration-300 shadow-sm hover:shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to Dashboard
+      </a>
+    </div>
+
+  </div>
+</div>

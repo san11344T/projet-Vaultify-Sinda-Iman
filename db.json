@@ -13,6 +13,12 @@
       "password": "456",
       "role": "client",
       "userId": 2
+    },
+    {
+      "id": "87c0",
+      "email": "student@gmail.com",
+      "password": "123",
+      "role": "client"
     }
   ],
   "users": [
@@ -33,53 +39,112 @@
       "email": "iman@vaultify.com",
       "category": "regular",
       "offers": []
+    },
+    {
+      "id": "87c0",
+      "firstName": "student",
+      "lastName": "",
+      "email": "student@gmail.com",
+      "category": "student",
+      "offers": []
     }
   ],
   "accounts": [
     {
       "id": "1",
       "userId": 1,
-      "balance": 1500,
+      "balance": 11450,
       "type": "CHECKING",
       "rib": "FR76 1234 5678"
     },
     {
       "id": "2",
       "userId": 2,
-      "balance": 50,
+      "balance": 30105,
       "type": "CHECKING",
       "rib": "FR76 9876 5432"
+    },
+    {
+      "id": "385c",
+      "userId": "87c0",
+      "balance": 95,
+      "type": "CHECKING",
+      "rib": "FR76 4711 8476 3386"
     }
   ],
-  "transfers": [],
+  "transfers": [
+    {
+      "id": "1aad",
+      "fromUserId": "2",
+      "toUserId": "1",
+      "amount": 50,
+      "date": "2026-02-02T22:34:23.749Z",
+      "status": "COMPLETED",
+      "label": "Virement vers Sinda"
+    },
+    {
+      "id": "dc7e",
+      "fromUserId": "2",
+      "toUserId": "1",
+      "amount": 1000,
+      "date": "2026-02-02T22:48:10.820Z",
+      "status": "COMPLETED",
+      "label": "Virement vers Sinda"
+    },
+    {
+      "id": "a713",
+      "fromUserId": "2",
+      "toUserId": "1",
+      "amount": 8900,
+      "date": "2026-02-02T23:03:04.368Z",
+      "status": "COMPLETED",
+      "label": "Virement vers Sinda"
+    },
+    {
+      "id": "756b",
+      "fromUserId": "87c0",
+      "toUserId": "2",
+      "amount": 5,
+      "date": "2026-02-02T23:36:57.714Z",
+      "status": "COMPLETED",
+      "label": "Virement vers Iman"
+    }
+  ],
   "requests": [
     {
-      "id": "8c9f",
-      "userId": "1",
-      "type": "CLOSURE",
-      "status": "PENDING",
-      "date": "2026-01-29T11:44:16.304Z"
-    },
-    {
-      "id": "996c",
-      "userId": "1",
+      "id": "6bcc",
+      "userId": "87c0",
       "type": "INSURANCE",
       "status": "PENDING",
-      "date": "2026-01-29T16:54:53.274Z"
+      "date": "2026-02-02T23:40:07.412Z"
     },
     {
-      "id": "6fcf",
-      "userId": "1",
-      "type": "LIVRET_A",
+      "id": "b158",
+      "userId": "87c0",
+      "type": "INSURANCE",
       "status": "PENDING",
-      "date": "2026-01-29T16:54:57.574Z"
+      "date": "2026-02-02T23:45:08.682Z"
     },
     {
-      "id": "ac6d",
-      "userId": "1",
-      "type": "LIVRET_A",
+      "id": "66c4",
+      "userId": "87c0",
+      "type": "INSURANCE",
       "status": "PENDING",
-      "date": "2026-01-29T16:55:42.407Z"
+      "date": "2026-02-02T23:45:25.223Z"
+    },
+    {
+      "id": "3e6d",
+      "userId": "87c0",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-02T23:45:42.271Z"
+    },
+    {
+      "id": "99df",
+      "userId": "87c0",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-02T23:47:26.789Z"
     }
   ]
 }

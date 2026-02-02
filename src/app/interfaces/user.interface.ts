@@ -3,10 +3,11 @@ export interface User {
     firstName: string;
     lastName: string;
     email: string;
-    category: 'student' | 'regular';
+    category: 'student' | 'regular' | 'premium';
     balance: number;
     accountType: string;
     createdAt: string;
     offers: string[];
     verified: boolean;
+    password: string;
 }
