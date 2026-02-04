@@ -1,81 +1,91 @@
 <!-- navbar.html - PALETTE ROYAL MODERN -->
-<nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-[#0A2E6D]/10 shadow-sm">
-  
+<nav
+  class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-[#0A2E6D]/10 shadow-sm transition-colors duration-300">
+
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
+    <div class="flex items-center justify-between h-20">
 
       <!-- Logo -->
-      <a routerLink="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-        <img 
-          src="vaultify-logo.png" 
-          alt="Vaultify" 
-          class="h-10 w-auto object-contain" 
-        />
+
+      <a [routerLink]="isLoggedIn ? '/account' : '/'"
+        class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <img src="vaultify-logo.png" alt="Vaultify" class="h-32 w-auto object-contain" />
       </a>
+
 
       <!-- Menu NON loggato -->
       <div *ngIf="!isLoggedIn" class="flex items-center gap-3">
         <a routerLink="/login">
-          <button class="font-semibold text-[#0A2E6D] hover:bg-[#0A2E6D]/5 px-6 py-2 rounded-lg transition-all duration-200 border border-transparent hover:border-[#0A2E6D]/20">
+          <button
+            class="font-semibold text-[#0A2E6D] hover:bg-[#0A2E6D]/5 px-6 py-2 rounded-lg transition-all duration-200 border border-transparent hover:border-[#0A2E6D]/20">
             Log in
           </button>
         </a>
         <a routerLink="/register">
-          <button class="bg-gradient-to-r from-[#0A2E6D] to-[#D5A928] hover:from-[#0A2E6D]/90 hover:to-[#D5A928]/90 text-white font-bold py-2 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg">
+          <button
+            class="bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#1E3A8A]/90 hover:to-[#3B82F6]/90 text-white font-bold py-2 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg">
             Create Account
           </button>
+
         </a>
       </div>
 
       <!-- Menu LOGGATO - Banking Navigation -->
       <div *ngIf="isLoggedIn" class="flex items-center gap-2">
         <!-- Dashboard -->
-        <a routerLink="/account" 
-           routerLinkActive="active-link"
-           class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 inline-block mr-2 -mt-0.5">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        <a routerLink="/account" routerLinkActive="active-link"
+          class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            class="w-5 h-5 inline-block mr-2 -mt-0.5">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
           </svg>
           Dashboard
         </a>
 
         <!-- Transfers -->
-        <a routerLink="/transfer" 
-           routerLinkActive="active-link"
-           class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 inline-block mr-2 -mt-0.5">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        <a routerLink="/transfer" routerLinkActive="active-link"
+          class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            class="w-5 h-5 inline-block mr-2 -mt-0.5">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
           </svg>
           Transfers
         </a>
 
         <!-- History -->
-        <a routerLink="/history" 
-           routerLinkActive="active-link"
-           class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 inline-block mr-2 -mt-0.5">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <a routerLink="/history" routerLinkActive="active-link"
+          class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            class="w-5 h-5 inline-block mr-2 -mt-0.5">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           History
         </a>
 
         <!-- Settings -->
-        <a routerLink="/settings" 
-           routerLinkActive="active-link"
-           class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 inline-block mr-2 -mt-0.5">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <a routerLink="/settings" routerLinkActive="active-link"
+          class="px-4 py-2 rounded-lg font-semibold text-[#1F2937] hover:text-[#0A2E6D] hover:bg-[#0A2E6D]/5 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            class="w-5 h-5 inline-block mr-2 -mt-0.5">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           Settings
         </a>
 
         <!-- User Menu con Logout -->
         <div class="ml-3 pl-3 border-l border-[#0A2E6D]/20">
-          <button (click)="logout()" 
-                  class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          <button (click)="logout()"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
             Logout
           </button>

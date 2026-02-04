@@ -19,6 +19,24 @@
       "email": "student@gmail.com",
       "password": "123",
       "role": "client"
+    },
+    {
+      "id": "a3aa",
+      "email": "imansolaih@gmail.com",
+      "password": "123",
+      "role": "client"
+    },
+    {
+      "id": "011b",
+      "email": "imansolaih@gmail.com",
+      "password": "123",
+      "role": "client"
+    },
+    {
+      "id": "44c5",
+      "email": "imansolaih@gmail.com",
+      "password": "123",
+      "role": "client"
     }
   ],
   "users": [
@@ -47,6 +65,30 @@
       "email": "student@gmail.com",
       "category": "student",
       "offers": []
+    },
+    {
+      "id": "a3aa",
+      "firstName": "Iman",
+      "lastName": "Solaih",
+      "email": "imansolaih@gmail.com",
+      "category": "standard",
+      "offers": []
+    },
+    {
+      "id": "011b",
+      "firstName": "Iman",
+      "lastName": "Solaih",
+      "email": "imansolaih@gmail.com",
+      "category": "standard",
+      "offers": []
+    },
+    {
+      "id": "44c5",
+      "firstName": "Iman",
+      "lastName": "Solaih",
+      "email": "imansolaih@gmail.com",
+      "category": "standard",
+      "offers": []
     }
   ],
   "accounts": [
@@ -70,6 +112,27 @@
       "balance": 95,
       "type": "CHECKING",
       "rib": "FR76 4711 8476 3386"
+    },
+    {
+      "id": "63d2",
+      "userId": "a3aa",
+      "balance": 0,
+      "type": "CHECKING",
+      "rib": "FR76 8628 7019 8811"
+    },
+    {
+      "id": "032c",
+      "userId": "011b",
+      "balance": 0,
+      "type": "CHECKING",
+      "rib": "FR76 6270 5905 4130"
+    },
+    {
+      "id": "8ca2",
+      "userId": "44c5",
+      "balance": 0,
+      "type": "CHECKING",
+      "rib": "FR76 4867 9869 6734"
     }
   ],
   "transfers": [
@@ -145,6 +208,41 @@
       "type": "INSURANCE",
       "status": "PENDING",
       "date": "2026-02-02T23:47:26.789Z"
+    },
+    {
+      "id": "00cc",
+      "userId": "44c5",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-03T19:20:40.565Z"
+    },
+    {
+      "id": "f825",
+      "userId": "44c5",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-03T19:20:45.000Z"
+    },
+    {
+      "id": "89e6",
+      "userId": "44c5",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-03T19:20:48.259Z"
+    },
+    {
+      "id": "e3cc",
+      "userId": "44c5",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-03T19:21:10.339Z"
+    },
+    {
+      "id": "40d1",
+      "userId": "a3aa",
+      "type": "INSURANCE",
+      "status": "PENDING",
+      "date": "2026-02-04T23:51:09.567Z"
     }
   ]
 }
