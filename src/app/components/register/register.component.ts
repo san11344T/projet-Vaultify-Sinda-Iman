@@ -1,26 +1,44 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
+import { Navbar } from '../navbar/navbar.component';
+import { AuthMock } from '../../services/auth-mock';
+import { Auth } from '../../interfaces/auth.interface';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, Navbar],
   templateUrl: './register.html',
-  styleUrl: './register.scss',
+  styleUrls: ['./register.scss'],
 })
 export class RegisterComponent {
-  form = { prenom: '', nom: '', email: '', mdp: '', category: 'regular' as 'student'|'regular' };
+  registerForm: FormGroup;
+  showBonus = false;
 
-  constructor(private userS: UserService, private router: Router) {}
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+    this.registerForm = this.fb.group({
+      fullName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      password: ['', Validators.required],
+      category: ['', Validators.required]
+    });
+  }
 
-  public register() {
-    this.userS.register(this.form.prenom, this.form.nom, this.form.email, this.form.mdp, this.form.category)
-      .subscribe(() => {
-        alert('Compte créé ! Connectez-vous.');
-        this.router.navigate(['/login']);
-      });
+  onSubmit() {
+    if (this.registerForm.invalid) return;
+
+    const { fullName, email, phone, password, category } = this.registerForm.value;
+
+    this.auth.register({ fullName, email, phone, password, category }).subscribe({
+      next: () => {
+        if (category === 'student') this.showBonus = true;
+        setTimeout(() => this.router.navigate(['/account']), 2000);
+      },
+      error: () => alert('Registration failed')
+    });
   }
-  }
+}

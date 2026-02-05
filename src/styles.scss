@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss';
+
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#app-root, app-root {  /* o il selettore Angular che usi */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}

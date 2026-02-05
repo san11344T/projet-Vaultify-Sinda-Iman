@@ -1,0 +1,146 @@
+<!-- history.html - PALETTE ROYAL MODERN -->
+<app-navbar></app-navbar>
+
+<div class="min-h-screen bg-[#F6F5F1] pt-20">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    
+    <!-- Welcome Header -->
+    <div class="mb-8 animate-fade-in">
+      <h1 class="text-4xl font-bold mb-3 text-[#0A2E6D]">
+        Every transaction, beautifully organized.
+      </h1>
+      <p class="text-[#1F2937]/80 text-lg font-medium">
+        Your complete financial timeline
+      </p>
+    </div>
+
+    <!-- History Card -->
+    <div class="bg-white/95 rounded-2xl shadow-lg hover:shadow-2xl border border-[#0A2E6D]/20 animate-scale-in transition-all duration-500">
+      
+      <!-- Card Header -->
+      <div class="border-b border-[#0A2E6D]/10 p-8 pb-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#0A2E6D] to-[#3ACFD9] rounded-xl flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-[#0A2E6D]">Transaction History</h2>
+              <p class="text-[#1F2937]/60 font-medium text-sm">{{ history.length }} total transactions</p>
+            </div>
+          </div>
+
+          <!-- Filter Badges (optional) -->
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-1 text-xs font-bold bg-[#3ACFD9]/10 text-[#3ACFD9] rounded-lg hover:bg-[#3ACFD9]/20 transition-all">
+              All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Content - Transactions List -->
+      <div class="p-8">
+        
+        <!-- Empty State -->
+        <div *ngIf="history.length === 0" class="text-center py-16">
+          <svg class="w-24 h-24 text-[#1F2937]/20 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-[#1F2937]/70 mb-2">No transactions yet</h3>
+          <p class="text-[#1F2937]/50 mb-6">Your transaction history will appear here</p>
+          <a routerLink="/transfer" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#1E3A8A]/90 text-white font-bold rounded-xl hover:shadow-lg transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+            Make your first transfer
+          </a>
+        </div>
+
+        <!-- Transactions List -->
+        <div class="space-y-4">
+          <div *ngFor="let t of history" 
+               class="group flex items-center justify-between p-5 rounded-xl border-2 transition-all duration-300 hover:shadow-lg cursor-pointer transform hover:-translate-y-1"
+               [ngClass]="getTransactionClasses(t)">
+            
+            <div class="flex items-center gap-4 flex-1 min-w-0">
+              <!-- Icon Circle - Dynamic Color -->
+              <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                   [ngClass]="getIconClasses(t)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7 text-white">
+                  <!-- Income Icon -->
+                  <path *ngIf="isIncome(t)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                  <!-- Expense Icon -->
+                  <path *ngIf="isExpense(t)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+                  <!-- Bonus Icon -->
+                  <path *ngIf="isBonus(t)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13M11 3l3.226 7.217L18 13l-5.226 1.783L14 20l-4-7.217L5 13l5.226-1.783L9 3z" />
+                  <!-- Error Icon -->
+                  <path *ngIf="isError(t)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              
+              <!-- Transaction Details -->
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-lg text-[#0A2E6D] mb-1 truncate">{{ t.label }}</p>
+                <p class="text-sm text-[#1F2937]/60 font-medium">{{ t.date | date:'MMM dd, yyyy • h:mm a' }}</p>
+                <p *ngIf="t.label" class="text-xs text-[#1F2937]/50 mt-1">{{ t.label }}</p>
+              </div>
+            </div>
+
+            <!-- Amount - Dynamic Color -->
+            <div class="text-right flex-shrink-0 ml-4">
+              <span *ngIf="!isError(t)" 
+                    class="font-black text-2xl block"
+                    [ngClass]="getAmountClasses(t)">
+                {{ getAmountDisplay(t) }}
+              </span>
+              <span *ngIf="isError(t)" 
+                    class="font-black text-xl text-red-600 block">
+                FAILED
+              </span>
+              <span class="text-xs text-[#1F2937]/50 font-medium mt-1 block">
+                {{ getTransactionType(t) }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More (optional) -->
+        <div class="text-center mt-8" *ngIf="history.length > 0">
+          <button class="px-6 py-3 border-2 border-[#0A2E6D]/20 text-[#0A2E6D] font-bold rounded-xl hover:bg-[#0A2E6D]/5 hover:border-[#0A2E6D] transition-all duration-300">
+            Load older transactions
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats (optional) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+      <div class="bg-white/80 rounded-xl border-2 border-[#3ACFD9]/20 p-6 text-center">
+        <p class="text-xs font-bold uppercase text-[#1F2937]/70 mb-2">Total Received</p>
+        <p class="text-3xl font-black text-[#3ACFD9]">{{ getTotalIncome() | number:'1.2-2' }}€</p>
+      </div>
+      <div class="bg-white/80 rounded-xl border-2 border-[#1F2937]/20 p-6 text-center">
+        <p class="text-xs font-bold uppercase text-[#1F2937]/70 mb-2">Total Sent</p>
+        <p class="text-3xl font-black text-[#1F2937]">{{ getTotalExpenses() | number:'1.2-2' }}€</p>
+      </div>
+      <div class="bg-white/80 rounded-xl border-2 border-[#D5A928]/20 p-6 text-center">
+        <p class="text-xs font-bold uppercase text-[#1F2937]/70 mb-2">Bonuses</p>
+        <p class="text-3xl font-black text-[#D5A928]">{{ getTotalBonuses() | number:'1.2-2' }}€</p>
+      </div>
+    </div>
+
+    <!-- Back to Dashboard -->
+    <div class="text-center mt-8">
+      <a routerLink="/account" class="inline-flex items-center gap-2 px-6 py-3 bg-white/80 rounded-xl border-2 border-[#0A2E6D]/20 hover:border-[#0A2E6D] text-[#1F2937] font-semibold transition-all duration-300 shadow-sm hover:shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to Dashboard
+      </a>
+    </div>
+
+  </div>
+</div>
