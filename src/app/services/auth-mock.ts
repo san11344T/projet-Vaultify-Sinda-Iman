@@ -10,18 +10,17 @@ export class AuthMock {
 
   constructor() {}
 
-  /** Recupera tutti gli utenti dal localStorage */
+
   private getUsers(): User[] {
     const data = localStorage.getItem(this.storageKey);
     return data ? JSON.parse(data) : [];
   }
 
-  /** Salva tutti gli utenti nel localStorage */
+
   private saveUsers(users: User[]) {
     localStorage.setItem(this.storageKey, JSON.stringify(users));
   }
 
-  /** LOGIN MOCK */
   public login(email: string, password: string): Observable<User> {
     const users = this.getUsers();
     const user = users.find(u => u.email === email && u['password'] === password);
@@ -30,23 +29,21 @@ export class AuthMock {
       return throwError(() => new Error('Invalid credentials')).pipe(delay(500));
     }
 
-    // Salva sessione
+
     localStorage.setItem('currentUser', JSON.stringify(user));
     return of(user).pipe(delay(500));
   }
 
-  /** LOGOUT MOCK */
+
   public logout() {
     localStorage.removeItem('currentUser');
   }
 
-  /** Recupera l’utente corrente */
   public getCurrentUser(): User | null {
     const u = localStorage.getItem('currentUser');
     return u ? JSON.parse(u) : null;
   }
 
-  /** REGISTRATION MOCK */
   public register(data: {
     fullName: string;
     email: string;
@@ -57,7 +54,7 @@ export class AuthMock {
 
     let users = this.getUsers();
 
-    // Controlla email duplicata
+
     if (users.some(u => u.email === data.email)) {
       alert('Email already registered')
       return throwError(() => new Error('Email already registered')).pipe(delay(500));
@@ -73,8 +70,8 @@ export class AuthMock {
       createdAt: new Date().toISOString(),
       offers: data.category === 'student' ? ['welcome_bonus'] : [],
       verified: true,
-      password: data.password // aggiungo password solo per mock, non esiste nell'interfaccia reale
-    } as User & { password: string }; // hack per mock
+      password: data.password 
+    } as User & { password: string }; 
 
     users.push(newUser);
     this.saveUsers(users);

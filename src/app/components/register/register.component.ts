@@ -33,7 +33,6 @@ export class RegisterComponent {
 
     const { fullName, email, phone, password, category } = this.registerForm.value;
 
-    // Simula la registrazione
     this.auth.register({ fullName, email, phone, password, category }).subscribe({
       next: () => {
         if (category === 'student') this.showBonus = true;

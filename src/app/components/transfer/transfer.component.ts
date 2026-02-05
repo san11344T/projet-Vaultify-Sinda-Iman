@@ -18,9 +18,8 @@ import { Navbar } from "../navbar/navbar.component";
 export class TransferComponent implements OnInit {
   emailDest = '';
   montant = 0;
-  description = ''; // ← AGGIUNTO (opzionale)
+  description = '';
 
-  // ← NUOVE VARIABILI per UI
   currentBalance = 0;
   insufficientFunds = false;
   showInsufficientDialog = false;
@@ -33,7 +32,6 @@ export class TransferComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // ← CARICA BALANCE ALL'AVVIO (non rompe logica esistente)
     const user = this.auth.getCurrentUser();
     if (!user) {
       this.router.navigate(['/login']);
@@ -49,17 +47,14 @@ export class TransferComponent implements OnInit {
     const user = this.auth.getCurrentUser();
     if(!user) return;
 
-    // ← CHECK INSUFFICIENT FUNDS con tua logica
     if(this.currentBalance < this.montant) { 
       this.insufficientFunds = true;
       this.showInsufficientDialog = true;
       return; 
     }
 
-    // ← RESET ERROR STATE
     this.insufficientFunds = false;
 
-    // ← TUA LOGICA ORIGINALE (mantenuta)
     this.accountS.getAccountByUserId(user.id).subscribe(acc => {
        if(acc.balance < this.montant) { 
          alert('Solde insuffisant'); 
@@ -76,13 +71,11 @@ export class TransferComponent implements OnInit {
     });
   }
 
-  // ← METODI PER DIALOG
   closeInsufficientDialog() {
     this.showInsufficientDialog = false;
     this.insufficientFunds = false;
   }
-
-  // ← GETTER PER TEMPLATE
+  
   get isFormValid(): boolean {
     return this.montant > 0 && this.emailDest.trim().length > 0;
   }

@@ -13,7 +13,7 @@
       </a>
 
 
-      <!-- Menu NON loggato -->
+      <!-- Menu NOT logged -->
       <div *ngIf="!isLoggedIn" class="flex items-center gap-3">
         <a routerLink="/login">
           <button
@@ -30,7 +30,7 @@
         </a>
       </div>
 
-      <!-- Menu LOGGATO - Banking Navigation -->
+      <!-- Menu LOGGED - Banking Navigation -->
       <div *ngIf="isLoggedIn" class="flex items-center gap-2">
         <!-- Dashboard -->
         <a routerLink="/account" routerLinkActive="active-link"

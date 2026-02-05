@@ -41,7 +41,7 @@ export class History implements OnInit {
     });
   }
 
-  // ← METODI PER CLASSIFICARE TRANSAZIONI (basati su fromUserId)
+  
   isIncome(t: Transfer): boolean {
     return t.fromUserId !== this.user.id;
   }
@@ -59,8 +59,8 @@ export class History implements OnInit {
   }
 
   isError(t: Transfer): boolean {
-    // Error detection logic (se hai un campo status o simile)
-    return false; // Adatta alla tua logica
+    // Error detection logic 
+    return false; 
   }
 
   // ← CLASSI TAILWIND DINAMICHE

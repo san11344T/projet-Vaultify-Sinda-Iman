@@ -36,10 +36,6 @@ export class SettingsComponent implements OnInit {
   handleThemeChange(theme: string) {
     console.log(`Theme changed to: ${theme}`);
     alert(`Theme "${theme}" will be applied soon! (Feature coming)`);
-    
-    // TODO: Implementa logica per cambiare tema
-    // Es: localStorage.setItem('theme', theme);
-    // Poi applica classi CSS dinamiche
   }
 
   // ← DOCUMENT DOWNLOAD HANDLER
@@ -48,23 +44,18 @@ export class SettingsComponent implements OnInit {
 
     console.log(`Requesting ${docType} for user ${this.user.id}`);
     
-    // Simula download o richiesta al backend
     if (confirm(`Do you want to request your ${docType}?`)) {
       alert(`Your ${docType} request has been sent! You'll receive it by email shortly.`);
       
-      // TODO: Implementa chiamata al backend
-      // this.documentService.requestDocument(this.user.id, docType).subscribe(...)
     }
   }
 
-  // ← INSURANCE REQUEST HANDLER (usa AdvisorService esistente)
   handleInsuranceRequest(insuranceType: string) {
     if (!this.user) return;
 
     const message = `Do you want to request a quote for ${insuranceType} insurance?`;
     
     if (confirm(message)) {
-      // Usa il tuo AdvisorService esistente
       this.advisorS.createRequest(this.user.id, 'INSURANCE').subscribe({
         next: () => {
           alert(`Your ${insuranceType} insurance request has been sent to your advisor!`);

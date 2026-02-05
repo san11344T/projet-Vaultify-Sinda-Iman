@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // Login - Ottimizzato per join auth.users → users.id
+
   public login(email: string, mdp: string): Observable<User> {
     return this.http.get<Auth[]>(`${this.baseUrl}/auth?email=${email}&password=${mdp}`).pipe(
       switchMap(auths => {
@@ -21,9 +21,8 @@ export class AuthService {
           return throwError(() => new Error('Identifiants invalides'));
         }
         
-        const userId = auths[0].id; // ID numerico dall'auth
+        const userId = auths[0].id; 
         
-        // Get user con ID esatto
         return this.http.get<User[]>(`${this.baseUrl}/users?id=${userId}`).pipe(
           map(users => {
             if (!users || users.length === 0) {
@@ -47,7 +46,6 @@ export class AuthService {
     return u ? JSON.parse(u) : null;
   }
 
-  // Register - Crea TUTTO con ID coerenti
   public register(data: {
     fullName: string;
     email: string;
@@ -56,11 +54,10 @@ export class AuthService {
     category: string;
   }): Observable<User> {
 
-    // Divide fullName
+
     const [firstName, ...rest] = data.fullName.trim().split(' ');
     const lastName = rest.join(' ') || '';
 
-    // 1️⃣ Crea USER con ID auto-generato dal backend
     return this.http.post<User>(`${this.baseUrl}/users`, {
       firstName,
       lastName,
@@ -69,7 +66,7 @@ export class AuthService {
       offers: [] // default vuoto
     }).pipe(
       switchMap(user => {
-        // 2️⃣ Crea AUTH con userId = user.id (numerico)
+       
         return this.http.post<Auth>(`${this.baseUrl}/auth`, {
           id: user.id, // ID auth = ID user
           email: data.email,
@@ -77,15 +74,13 @@ export class AuthService {
           role: 'client'
         }).pipe(
           switchMap(() => {
-            // 3️⃣ Crea ACCOUNT con userId = user.id (numerico)
             return this.http.post(`${this.baseUrl}/accounts`, {
-              userId: String(user.id), // ← ESATTO join con users.id
+              userId: String(user.id),
               balance: user.category === 'student'? 100 :0,
               type: 'CHECKING',
               rib: this.generateRib()
             }).pipe(
               map(() => {
-                // 4️⃣ Salva in localStorage
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 return user;
               })
@@ -96,7 +91,6 @@ export class AuthService {
     );
   }
 
-  // Genera RIB fittizio
   private generateRib(): string {
     const randomDigits = () => Math.floor(1000 + Math.random() * 9000);
     return `FR76 ${randomDigits()} ${randomDigits()} ${randomDigits()}`;

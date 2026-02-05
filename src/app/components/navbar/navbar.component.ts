@@ -21,8 +21,7 @@ export class Navbar implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Controlla se l'utente è loggato
-
+  
     this.currentUser = this.auth.getCurrentUser();
     this.isLoggedIn = !!this.currentUser;
   }
